@@ -14,7 +14,7 @@
 # `(X 0)^2 - (X 1)^2 - (X 2)^2 = 3*(X 3)*(X 4)`, so the gate must fail at the build stage.
 # falsehyp2 drops `(hD : D3 a b ≠ 0)` from `equal_power_point_unique`; for collinear centres the
 # equal-power locus is a line (or everything), not one point, so the gate must fail at the build stage.
-# falsestmt2 changes the enclosing radius in `tetra_thm36` from `√3 + 1` to the false `√3 + 2`,
+# falsestmt2 changes the enclosing radius in `tetra_E1_apollonius` from `√3 + 1` to the false `√3 + 2`,
 # so the gate must fail at the build stage.
 set -u
 export PATH="$HOME/.elan/bin:$PATH"
@@ -62,7 +62,7 @@ LEAN
                grep -q '^    B X X = 0 ↔ (X 0)^2 - (X 1)^2 - (X 2)^2 = 3\*(X 3)\*(X 4) := by$' "$d/$C" || return 1 ;;
     falsehyp2) subst_lit "$d/$K" '(a b : Fin 3 → ℝ) (hD : D3 a b ≠ 0) (r₀ ρ x y : ℝ) :' '(a b : Fin 3 → ℝ) (r₀ ρ x y : ℝ) :' 'theorem equal_power_point_unique' || return 1
                grep -q '^theorem equal_power_point_unique (a b : Fin 3 → ℝ) (r₀ ρ x y : ℝ) :$' "$d/$K" || return 1 ;;
-    falsestmt2) subst_lit "$d/$D" 'B (sph (Real.sqrt 3 + 1) (P 1 / P 4)' 'B (sph (Real.sqrt 3 + 2) (P 1 / P 4)' 'theorem tetra_thm36' || return 1
+    falsestmt2) subst_lit "$d/$D" 'B (sph (Real.sqrt 3 + 1) (P 1 / P 4)' 'B (sph (Real.sqrt 3 + 2) (P 1 / P 4)' 'theorem tetra_E1_apollonius' || return 1
                 grep -q '^      B (sph (Real.sqrt 3 + 2) (P 1 / P 4) (P 2 / P 4) (P 3 / P 4))$' "$d/$D" || return 1 ;;
     *) return 1 ;;
   esac

@@ -139,7 +139,7 @@ theorem tetra_tangent_sq :
 
 /-- Thm 3.6 conclusion in the regular-tetrahedron case: centre `P_X = 0`, inscribed radius
 `√3 - 1`, enclosing radius `√3 + 1`, both tangent to all four unit spheres. -/
-theorem tetra_thm36 (r a b c : ℝ) (P : Fin 6 → ℝ)
+theorem tetra_E1_apollonius (r a b c : ℝ) (P : Fin 6 → ℝ)
     (hP : ∀ i, B P (tetraFam r a b c i) = 0) (hP4 : P 4 ≠ 0) :
     (P 1 / P 4 = 0 ∧ P 2 / P 4 = 0 ∧ P 3 / P 4 = 0) ∧
     (∀ i : Fin 4,
@@ -211,7 +211,7 @@ end PaperK3
 #print axioms PaperK3.tetra_radii_metric
 #print axioms PaperK3.tetra_tangent_B
 #print axioms PaperK3.tetra_tangent_sq
-#print axioms PaperK3.tetra_thm36
+#print axioms PaperK3.tetra_E1_apollonius
 #print axioms PaperK3.tetraR_PX_origin
 #print axioms PaperK3.tetraR_tangent_B
 #print axioms PaperK3.tetra_affineIndependent
